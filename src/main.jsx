@@ -9,11 +9,14 @@ import {
 } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./components/Home";
+import { wait } from "./utilities/wait";
 // import About from "./components/About";
 // import Contact from "./components/Contact";
 
-const About = lazy(() => import("./components/About"));
-const Contact = lazy(() => import("./components/Contact"));
+const About = lazy(() => wait(2000).then(() => import("./components/About")));
+const Contact = lazy(() =>
+  wait(2000).then(() => import("./components/Contact"))
+);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
