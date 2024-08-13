@@ -8,6 +8,7 @@ function Contact() {
       console.log("Contact section is unmounted");
     };
   }, []);
+  throw new Error("Contact page not working");
   return <div>Contact Page</div>;
 }
 

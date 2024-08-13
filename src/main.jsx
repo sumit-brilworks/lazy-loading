@@ -10,6 +10,8 @@ import {
 import Layout from "./Layout";
 import Home from "./components/Home";
 import { wait } from "./utilities/wait";
+import ErrorElement from "./components/ErrorElement";
+import AboutErrorElement from "./components/AboutErrorElement";
 // import About from "./components/About";
 // import Contact from "./components/Contact";
 
@@ -20,9 +22,13 @@ const Contact = lazy(() =>
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path="/" element={<Layout />} errorElement={<ErrorElement />}>
       <Route path="" element={<Home />}></Route>
-      <Route path="/about" element={<About />}></Route>
+      <Route
+        path="/about"
+        errorElement={<AboutErrorElement />}
+        element={<About />}
+      ></Route>
       <Route path="/contact" element={<Contact />}></Route>
     </Route>
   )

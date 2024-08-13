@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import { cn } from "./utilities/cn";
 
 function Layout() {
   return (
@@ -7,13 +8,22 @@ function Layout() {
       <div>
         <div className="h-32 bg-sky-500">
           <div className="text-purple-400 text-4xl">
-            <Link to={"/"}>Home</Link>
+            <NavLink to={"/"}>Home</NavLink>
           </div>
           <div className="text-purple-400 text-4xl">
-            <Link to={"/about"}>About</Link>
+            <NavLink
+              className={cn(({ isActive, isPending }) => {
+                return isActive
+                  ? "text-5xl text-red-600 animate-bounce h-24"
+                  : "";
+              }, "text-yellow-600")}
+              to={"/about"}
+            >
+              About
+            </NavLink>
           </div>
           <div className="text-purple-400 text-4xl">
-            <Link to={"/contact"}>Contact</Link>
+            <NavLink to={"/contact"}>Contact</NavLink>
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ function About() {
       console.log("About section is unmounted");
     };
   }, []);
+  throw new Error("Page does not available");
   return <div>About Page</div>;
 }
 
