@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function Contact() {
   // Displaying the example of unmounting and the cleanup function
@@ -8,7 +9,9 @@ function Contact() {
       console.log("Contact section is unmounted");
     };
   }, []);
-  throw new Error("Contact page not working");
+  // throw new Error("Contact page not working");
+  const location = useLocation();
+  console.log(location);
   return <div>Contact Page</div>;
 }
 
